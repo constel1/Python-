@@ -1,25 +1,28 @@
-
-
-
-a= [1,2,3]
-
-c = a[:]
-print(c)
-c*=2
-print(c)
-print("her" in c)
-del c[3]
-
-a = c
-print(f"\tid c{id(c)}\n", c)
-print(f"\tid c{id(a)}\n", a)
+a = [1,4,-45,7,98,-3,2]
 
 print(a)
-print(c)
-print("werty"[1::2])
-print(sorted(c, reverse=True))
-print(c[::-1])
-c[2:4] = "хорошо", "отлично"
-print(c)
-c[2:4] = 10,20
-print(c)
+a.append([1,2,3])
+print(a)
+a.insert(0, True)
+print(a)
+a.remove(True)
+a.remove(True)
+print(a)
+print(a.pop())
+print(a)
+a.pop(4)
+print(a)
+a.append(True)
+a.insert(2, 1)
+print(a)
+print(a.count(1))
+print(a.index(1,4))
+print("ihsfh" in a)
+print(a)
+a.reverse()
+print(a)
+a.sort(reverse=True)
+print(a)
+
+
+
