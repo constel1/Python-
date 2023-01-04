@@ -1,34 +1,28 @@
-i=1
-s=0
-N = int(input("До скольки подсчитать сумму? - "))
-while i<20:
-    if i%2!=0:
-        s+=i
-    i+=1
-print(f"sum = {s}")
+# words = [-23,2,-5,78,45,3,-75,4]
+# print(words)
+#
+# for i, d in enumerate(words):
+#     if 9<abs(d) <100:
+#         words[i] = 0
+# print(words)
+t = ["a","b","v","g","d","e","zh","z","i","y",
+     "k","l","m","n","o","p","r","s","t","u",
+     "f","h","c","ch","sh","shch","","y","","e","yu","ya"]
 
-pass1 = "werty"
-ps = ""
-while True:
-    ps = input("Input your password - ")
-    if ps!= pass1:
-        print("ERROR!")
-        continue
-    break
-print("correct password ")
-s = 0
-i =-10
-while i<100:
-    if i==0:
-        break
-    s+=1/i
-    i+=1
-else:
-    print("Сумма вычисленна корректно")
-print(s)
-d = [9,5,8,4,5]
+start = ord("а")
+title = "Программирование на Python - это норма"
+sus = ""
+for s in title.lower():
+    if "а"<= s <= "я":
+        
+        sus+= t[ord(s) - start]
 
-print(d)
-for i in range(len(d)):
-    d[i] *= 2
-print(d)
+    elif s == "ё":
+        sus+= "yo"
+    elif s in " !&?;:.,":
+        sus+= "-"
+    else:
+        sus+=s
+while sus.count("--"):
+    sus = sus.replace("--", "-")
+print(sus)
