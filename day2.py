@@ -1,85 +1,68 @@
-# # d = [3,5,25,6,96,34]
-# # it = iter(d)
-# # for i in range(len(d)):
-# #     print(next(it))
-# # r = range(4)
-# # it = iter(r)
-# # for i in r:
-# #     print(next(it))
-# a = [[1,2,3], [4,5,6], [7,8,9]]
-# b = [[1,1,1], [2,2,2], [3,3,3]]
-# # for x in a:
-# #     for z in x:
-# #         print(z, end=" | ")
-# #     print()
-# #     print("-----------")
-# # print()
-# # for x in b:
-# #     for z in x:
-# #         print(z, end=" | ")
-# #     print()
-# #     print("-----------")
-# c = []
-# for i, row  in enumerate(a):
-#     r = []
-#     for j, x in enumerate(row):
-#         r.append(x+b[i][j])
-#     c.append(r)
-# # print()
-# # print(c)
-# #
-# # print()
-# #
-# # for x in c:
-# #     for z in x:
-# #         print(z, end=" | ")
-# #     print()
-# #     print("-----------")
-# t = ["- Скажика дядя ведь не даром",
-#      "Я Python выучил с  каналом",
-#      "Балакирев что  раздавал ",
-#      "Ведь были  ж  задания боевые,",
-#      "Да говорят  ещё  какие",
-#      "Недаром  помнит вся Россия",
-#      "Как мы рубили их тогда"]
-# # print("\n".join(t))
-# # print("\n-------------\n")
-# # print(("\n".join(t)).replace("  ", " "))
-# for i, line in enumerate(t):
-#     while line.count("  "):
-#         line = line.replace("  ", " ")
-#     t[i] = line
-# #m,n = list(map(int, input("Введите M и N: ").split()))
+# # #
+# # # a = []
+# # # for i in range(int(input("сколько? - "))):
+# # #     row = [1]*(i+1)
+# # #     for j in range(i+1):
+# # #         if j !=0 and j != i:
+# # #             row[j] = a[i - 1][j - 1] + a[i - 1][j]
+# # #
+# # #     a.append(row)
+# # #
+# # # for i in a:
+# # #     print(i)
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # #
+# # N =10
+# # # a = [0]* N
+# # # for i in range(N):
+# # #     a[i] = i**2
+# # a = [x**2 for x in range(N)]
+# # print(a)
+# # a = [1 for x in range(N)]
+# # print(a)
+# # a = [x%4 for x in range(N)]
+# # print(a)
+# # a = [x%2==0 for x in range(N)]
+# # print(a)
+# # a = [0.5*x +1 for x in range(N)]
+# # print(a)
+# # inp = list(map(int, input("введите целые числа через пробел - ").split()))
+# # inp = input("введите целые числа через пробел - ")
+# # a = [int(d) for d in inp.split()]
+# # print(a)
+# # a = [x for x in range(-5, 5) if x<0]
+# # print(a)
+# # cities = ['москва', "Владимир", "казань", "Владивосток", "Питер"]
+# # a = [city for city in cities if len(city)<7]
+# # print(cities)
+# # print(a)
+# def ar (arr1):
+#     a = [x for x in arr1 if x%2==0]
+#     b = [x for x in arr1 if x % 2 != 0]
 #
-#
-# n,m = list(map(int, input("Введите M и N: ").split()))
-# print(n, m)
-# # zeros = []
-# # for i in range(m):
-# #     zeros.append([0]*n)
-# # print(zeros)
-# arr = [[1,2,3,4], [5,6,7,8],[9,10,11,12],[13,14,15,16]]
-# print(arr)
-# for i in range(len(arr)):
-#     for j in range(i+1, len(arr)):
-#         arr[i][j],arr[j][i] = arr[j][i],arr[i][j]
-# print(arr)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#     return a,b
+# d = [2,-45,5,34,-26,83,-147,-36,91]
+# a,b = ar(d)
+# print(a)
+# print(b)
+# # d = [2,-45,5,34,-26,83,-147,-36,91]
+# # a = ["чётное" if x%2==0 else
+# #      "нечётное" for x in d
+# #      if x>0
+# #      ]
+# # print(a)
