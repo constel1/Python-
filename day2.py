@@ -1,28 +1,85 @@
-# words = [-23,2,-5,78,45,3,-75,4]
-# print(words)
+# # d = [3,5,25,6,96,34]
+# # it = iter(d)
+# # for i in range(len(d)):
+# #     print(next(it))
+# # r = range(4)
+# # it = iter(r)
+# # for i in r:
+# #     print(next(it))
+# a = [[1,2,3], [4,5,6], [7,8,9]]
+# b = [[1,1,1], [2,2,2], [3,3,3]]
+# # for x in a:
+# #     for z in x:
+# #         print(z, end=" | ")
+# #     print()
+# #     print("-----------")
+# # print()
+# # for x in b:
+# #     for z in x:
+# #         print(z, end=" | ")
+# #     print()
+# #     print("-----------")
+# c = []
+# for i, row  in enumerate(a):
+#     r = []
+#     for j, x in enumerate(row):
+#         r.append(x+b[i][j])
+#     c.append(r)
+# # print()
+# # print(c)
+# #
+# # print()
+# #
+# # for x in c:
+# #     for z in x:
+# #         print(z, end=" | ")
+# #     print()
+# #     print("-----------")
+# t = ["- Скажика дядя ведь не даром",
+#      "Я Python выучил с  каналом",
+#      "Балакирев что  раздавал ",
+#      "Ведь были  ж  задания боевые,",
+#      "Да говорят  ещё  какие",
+#      "Недаром  помнит вся Россия",
+#      "Как мы рубили их тогда"]
+# # print("\n".join(t))
+# # print("\n-------------\n")
+# # print(("\n".join(t)).replace("  ", " "))
+# for i, line in enumerate(t):
+#     while line.count("  "):
+#         line = line.replace("  ", " ")
+#     t[i] = line
+# #m,n = list(map(int, input("Введите M и N: ").split()))
 #
-# for i, d in enumerate(words):
-#     if 9<abs(d) <100:
-#         words[i] = 0
-# print(words)
-t = ["a","b","v","g","d","e","zh","z","i","y",
-     "k","l","m","n","o","p","r","s","t","u",
-     "f","h","c","ch","sh","shch","","y","","e","yu","ya"]
+#
+# n,m = list(map(int, input("Введите M и N: ").split()))
+# print(n, m)
+# # zeros = []
+# # for i in range(m):
+# #     zeros.append([0]*n)
+# # print(zeros)
+# arr = [[1,2,3,4], [5,6,7,8],[9,10,11,12],[13,14,15,16]]
+# print(arr)
+# for i in range(len(arr)):
+#     for j in range(i+1, len(arr)):
+#         arr[i][j],arr[j][i] = arr[j][i],arr[i][j]
+# print(arr)
 
-start = ord("а")
-title = "Программирование на Python - это норма"
-sus = ""
-for s in title.lower():
-    if "а"<= s <= "я":
-        
-        sus+= t[ord(s) - start]
 
-    elif s == "ё":
-        sus+= "yo"
-    elif s in " !&?;:.,":
-        sus+= "-"
-    else:
-        sus+=s
-while sus.count("--"):
-    sus = sus.replace("--", "-")
-print(sus)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
