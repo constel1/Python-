@@ -1,207 +1,85 @@
-# a, b,c,d = int(input()),int(input()),int(input()),int(input())
-# if a<b:
-#     a,b = b,a
-# if c >d:
-#     c,d = d,c
-# list1 = [[0 for x in range(d-c+2)] for row in range(a-b+2)]
-#
-# q,w = c,b
-# for i in range(a-b+2):
-#     for j in range(d-c+2):
-#         if i==0 and j==0:
-#             list1[i][j] = ""
-#             continue
-#         if i==0:
-#             list1[i][j] = c
-#             c+=1
-#         if j==0:
-#             list1[i][j] = b
-#             b+=1
-#
-# for i in range(a-w+2):
-#     for j in range(d-q+2):
-#         if i==0 or j==0:
-#             continue
-#         list1[i][j] = list1[0][j] * list1[i][0]
-#
-# for row in list1:
-#     for x in row:
-#         print(x, end="\t")
-#     print()
-# a,b = int(input()), int(input())
-# while a%3!=0:
-#     a+=1
-# s=0
-# count =0
-# for i in range(a,b+1,3):
-#     s+=i
-#     count+=1
-# print(s/count)
-# s = input()
-# print( (s.upper().count("g".upper()) + s.upper().count("c".upper()))/len(s)*100)
-# s = input()
-# l = [s for s in s]
-#
-# count=0
-# a=l[0]
-# for i in range(len(l)):
-#     if a==l[i]:
-#         count+=1
-#         if i!=(len(l)-1):
-#             continue
+# # a = 1,2
+# # print(a)
+# # x,y = a
+# # print(x,y)
+# a,b = "ra"
+# print(a,b)
+# a = (1,2,3)
+# print(len(a))
+# print(a[0])
+# d = {}
+# d[a] = "кортеж"
+# print(d)
+# import time
 #
 #
-#     print(f"{l[i-1]}{count}",end="")
-#     a = l[i]
-#     count=1
-#     if i==len(l)-1 and l[i]!=l[i-1]:
-#         print(f"{l[i]}{count}", end="")
-
-# students = ['Ivan', 'Masha', 'Sasha']
-# students += ['Olga']
-# students += 'Olga'
-# print(students)
-# a = [1, 2, 3]
-# b = a
-# print(f"a - {a}\nb - {b}")
+# # def get_sqrt(x):
+# #     res = None if x < 0 else x ** 0.5
+# #     return res, x
+# #
+# #
+# # a = get_sqrt(49)
+# # print(a)
 #
-# a[1] = 10
-# print(f"a - {a}\nb - {b}")
-#
-# b[0] = 20
-# print(f"a - {a}\nb - {b}")
-#
-# a = [5, 6]
-# print(f"a - {a}\nb - {b}")
-# l = [int(x) for x in input().split()]
-# #l1 = [ l[x+1]+l[x-1] if x!=0 or x!=len(l)-1 else l[x-1]+l[0] if x == len(l)-1 else l[-1]+l[x+1]for x in range(len(l))]
-# l1 = []
+# def maxim(a, b):
+#     return a if a > b else b
 #
 #
-# for i in range(len(l)):
-#     if 0<i<len(l)-1:
-#         l1.append(l[i+1]+l[i-1])
+# def get_nod(a, b):
+#     if a<b:
+#         a,b = b,a
+#
+#     while b!=0:
+#         a,b = b, a%b
+#     return a
 #
 #
-#     elif i == len(l)-1:
-#         if len(l) == 1:
-#             l1.append(l[0])
-#             break
-#         l1.append(l[i - 1] + l[0])
-#
-#     elif i == 0:
-#         l1.append(l[-1] + l[i + 1])
-#
-#1 1 2 2 3 3
-#
-# for i in l1:
-#     print(i, end=" ")
-# l = [int(x) for x in input().split()]
-# l1 = []
-# for i,v in enumerate(l):
-#     a = l.count(v)
-#     if a>=2:
-#         if not v in l1:
-#             l1.append(v)
-#
-#
-# l1.sort()
-# for i in l1:
-#     print(i, end=" ")
-
-# def f(x):
-#     # if  -2<x<=2:
-#     #     return  -x/2
-#     # elif x <=2 :
-#     #     return 1-(x+2)**2
-#     # elif 2<x:
-#     #     return (x-2)**2 + 1
-
-# def modify_list(l):
-#     i=0
-#     count=0
-#     while True:
-#         count+=1
-#         if len(l)==0 or count==len(l):
-#             break
-#         if l[i]%2!=0 or l[i] ==0:
-#             l.remove(l[i])
-#             continue
-#
-#         l[i]//=2
-#         i+=1
-# def modify_list(l):
-#     l1 = []
-#     for i in l:
-#         if i%2!=0 :
-#             continue
-#         l1.append(i)
-#     for i in range(len(l1)):
-#         l1[i]//=2
-#     l.clear()
-#     for i in l1:
-#         l.append(i)
-#
-# lst = [1, 2, 3, 4, 5, 6]
-# modify_list(lst)
-# print(lst)               # [1, 2, 3]
-# modify_list(lst)
-# print(lst)               # [1]
-#
-# lst = [10, 5, 8, 3]
-# modify_list(lst)
-# print(lst)               # [5, 4]
-# for i in range(len(s)):
-#     if s[i]==s[i+1]:
-#         continue
-#     l.append(s[i])
-# print(l)
-
-
-# def update_dictionary(d, key, value):
-#     if key in d:
-#         d[key] += [value]
-#     elif 2*key in d:
-#         d[key * 2] += [value]
+# def test_nod(func):
+#     # ------- test №1 -------
+#     a = 28
+#     b = 35
+#     res = func(a, b)
+#     if res == 7:
+#         print("#test1 - Ok")
 #     else:
-#         d[key*2] = [value]
+#         print("#test1 - fail")
 #
-# d = {}
-# print(update_dictionary(d, 1, -1))  # None
-# print(d)                            # {2: [-1]}
-# update_dictionary(d, 2, -2)
-# print(d)                            # {2: [-1, -2]}
-# update_dictionary(d, 1, -3)
-# print(d)                            # {2: [-1, -2, -3]}
-
-# l = list(input().lower().split())
-# d = {}
-# for i in range(len(l)):
-#     if l[i] not in d:
-#         d[l[i]] = l.count(l[i])
-# for key, val in d.items():
-#     print(f"{key} {val}")
-
-# d = {}
-# for i in range(int(input())):
-#     d.
-#     print(f(int(input())))
-# fin = open("C:\\Users\\User\\Desktop\\input1.txt", 'r')
-# s = fin.readline().strip()
-# l = s.split("")
-# fin.close()
+#     # ------- test №2 -------
+#     a = 100
+#     b = 1
+#     res = func(a, b)
+#     if res == 1:
+#         print("#test2 - Ok")
+#     else:
+#         print("#test2 - fail")
+#     # ------- test №3 -------
+#     a = 2
+#     b = 100000000
+#     st = time.time()
+#     res = func(a,b)
+#     et = time.time()
+#     dt = et-st
+#     if res ==2 and dt<1:
+#         print("#test3 - Ok")
+#     else:
+#         print("#test2 - fail")
 #
-# fout = open("C:\\Users\\User\\Desktop\\output1.txt", 'r')
-# for i in range(0,len(l),2):
-#     fout.write(l[i]*int(l[i+1]))
-# fout.close()
-import requests
-r = requests.get("https://vk.com/im?sel=c58")
-print(r.text)
-url = "https://music.yandex.ru/users/makarov21A/playlists"
-par = {"key1":"val1", "key2":"val2"}
-r = requests.get(url,params=par)
-print(r.url)
-b = arr
+#
+#
+#
+# # print(get_nod(18, 24))
+# test_nod(get_nod)
+
+# def recursive(value):
+#     print(value)
+#     recursive(value+1)
+#
+# recursive(1)
+def fact(n):
+    if n <=0:
+        return 1
+    return n*fact(n-1)
+
+print(fact(6))
 
 
