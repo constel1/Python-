@@ -1,13 +1,13 @@
-a = [1,2,3,4]
-b = [3,4,5,6,7,8]
-c = "python"
-z = zip(a,b,c)
-print(z)
-lz = list(z)
-print(lz)
-t1,t2,t3 = zip(*lz)
-print(*lz)
-print(t1,t2,t3, sep="\n")
+# a = [1,2,3,4]
+# b = [3,4,5,6,7,8]
+# c = "python"
+# z = zip(a,b,c)
+# print(z)
+# lz = list(z)
+# print(lz)
+# t1,t2,t3 = zip(*lz)
+# print(*lz)
+# print(t1,t2,t3, sep="\n")
 
 
 

@@ -1,34 +1,48 @@
-file = open("myfile.txt", encoding="utf-8")
-print(file.read())
-s = file.readlines()
-print(s)
-# for line in file:
-#     print(line)
+
+# # def key_sort(x):
+# #     return x if x%2==0 else x+100
+# # a = [4,3,-10,1,7,12]
+# # b= sorted(a,key=key_sort)
+# # print(b)
+# lst = ["Москва", "Тверь", "Смоленск", "Псков","Рязань"]
+# b = sorted(lst, key=lambda x:x[0])
+# print(b)
+# b = sorted(lst, key=lambda x:x[0], reverse=True)
+# print(b)
+# a = 98
+# print(isinstance(a, int))
+# data = [4.5, 8.7, True, "книга", 8,10,-23,[True,False]]
+# s = sum(filter(lambda x:isinstance(x,float),data))
+# print(s)
+# a = [0,1, [], "",0]
+# all_res = False
+# for x in a:
+#     all_res =all_res or  bool(x)
+# #print(all_res)
+# s = ["*", 0,5]
+# #print(False or True)
+# d = map(lambda x:x=="*",s)
+# print(next(d))
+# print(next(d))
+# print(next(d))
+# import random
+# # a = random.gauss(0,5)
+# # print(a)
+# lst = [4,5,0,-1,10,76,3]
 #
-# print(file.readline(),  end="")
-# print(file.readline())
-#
-# # print(file.read(4))
-# file.seek(0)
-# print(file.read(4))
-# print(file.read(4))
-# pos = file.tell()
-# print(pos)
-file.close()
+# # a = random.choice(lst)
+# # random.shuffle(lst)
+# a = random.sample(lst,3)
+# print(a)
+# from typing import Final
+# a: Final =3
+# b: Final =5
+# cmd = 3
+# match cmd:
+#     case a:
+#         print("3")
+#     case b:
+#         print("5")
 
 
 
-
-# import courses
-# #courses.get_python()
-# courses.get_php()
-# print(dir(courses))
-
-
-
-
-# import mymodule as mym
-# import pprint
-# import matplotlib
-#
-# pprint.pprint(dir(mym))
