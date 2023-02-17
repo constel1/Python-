@@ -30,19 +30,15 @@
 # # print(a)
 # lst = [4,5,0,-1,10,76,3]
 #
-# # a = random.choice(lst)
-# # random.shuffle(lst)
-# a = random.sample(lst,3)
-# print(a)
-# from typing import Final
-# a: Final =3
-# b: Final =5
-# cmd = 3
-# match cmd:
-#     case a:
-#         print("3")
-#     case b:
-#         print("5")
+# a = random.choice(lst)
+# random.shuffle(lst)
+
+
+from typing import Final
+a: Final =3
+b: Final =5
+cmd = 3
+
 
 
 

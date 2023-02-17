@@ -1,123 +1,205 @@
 # class Point:
+#     def __init__(self,x=0,y=0):
+#         self.__x = self.__y = 0
+#         if self.__check_val(x) and self.__check_val(y):
+#             self.__x = x
+#             self.__y = y
+#     @classmethod
+#     def __check_val(cls, x):
+#         return type(x) in (int, float)
 #
-#     color: str= "red"
-#     circle: int =2
-# a = Point()
-# a.color = "green"
-# a.circle = 5
-# print(a.color)
-# print(a.circle)
-# print(a.__dict__)
-# setattr(Point, 'hah', "normal")
-# setattr(Point,'call', 10)
-# print(Point.__dict__)
-# print(Point.call)
-# attr
-# # Point.cost = 200
-# # print(Point.cost)
-# # del Point.cost
-# # print(Point.__dict__)
-# def fool(*a):
-#
-#     for i in range(len(a)):
-#         print(a[i].__dict__)
-# class Point:
-#     color = "red"
-#     circle = 2
-#
-#     def __init__(self, x=0,y=0):
-#
-#         self.x = x
-#         self.y = y
-#     def __del__(self):
-#
-#     def set_coords(self, x,y):
-#         self.x = x
-#         self.y = y
-#         print(f"x: {x}\ny: {y}")
-#     def get_coords(self):
-#         return (self.x, self.y)
-#
-#
-# pt = Point()
-#
-# print(pt.__dict__)
-# # pt = Point()
-# # pt.set_coords(2,54)
-# # print(pt.get_coords())
-# # a = 9
-# # b = 34
-# # c = 'jkj'
-# # fool(a,b,c)
-
-# class Point:
-#     color = "red"
-#     circle = 2
-#
-#     def __init__(self, x=0,y=0):
-#         print("Вызов INIT для - " + str(self))
-#         self.x = x
-#         self.y = y
-#     def __new__(cls, *args, **kwargs):
-#         print("Вызов NEW для - " + str(cls))
-#         return super().__new__(cls)
+#     def set_coord(self, x,y):
+#         if self.__check_val(x) and self.__check_val(y):
+#             self.__x = x
+#             self.__y = y
+#         else:
+#             raise ValueError("Координаты должны быть числами")
+#     def get_coord(self):
+#         return self.__x , self.__y
 #
 # pt = Point(1,2)
-# print(pt)
-# class DataBase:
-#     __instance = None
-#     def __new__(cls, *args, **kwargs):
+# pt.set_coord(34,6)
 #
-#         if cls.__instance is None:
-#             print("NEW созданние")
-#             print(super().__new__(cls))
-#             cls.__instance = super().__new__(cls)
-#         print("NEW")
-#         return cls.__instance
-#     def __del__(self):
-#         print("DEL")
-#         DataBase.__instance = None
-#     def __init__(self, user, psw, port):
-#         print("INIT")
-#         self.user = user
-#         self.psw = psw
-#         self.port = port
-#     def connect(self):
-#         print(f"соединение с BD: {self.user}, {self.psw}, {self.port}")
-#     def close(self):
-#         print("Закрытие соединения с БД")
-#     def read(self):
-#         return "данные из БД"
-#     def write(self, data):
-#         print(f"Запись в БД: {data}")
+# print(pt.get_coord())
+# class Point:
+#     MAX_COORD = 100
+#     MIN_COORD = 0
 #
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
 #
-# db = DataBase("root", '1234', 37)
-# db2 = DataBase("admin", '5678', 21)
-# print(id(db), id(db2))
+#     def set_coord(self, x, y):
+#         if self.MIN_COORD <= x <= self.MAX_COORD:
+#             self.x = x
+#             self.y = y
+#
+#     @classmethod
+#     def set_bound(cls, left):
+#         cls.MIN_COORD = left
+#     def __getattribute__(self, item):
+#         if item == "x":
+#             raise ValueError("Доступ запрещён")
+#         else:
+#             return object.__getattribute__(self, item)
+#     def __setattr__(self, key, value):
+#         if key == "z":
+#             raise AttributeError("Недопустимое имя атрибута")
+#         else:
+#             object.__setattr__(self, key, value)
+#             # self.__dict__[key] = value так можно но не рекомендуется
+#     def __getattr__(self, item):
+#         return False
+#     def __delattr__(self, item):
+#         print("__delattr__: " + item)
+#         object.__delattr__(self, item)
 
-class Vector:
-    MIN_COORD = 0
-    MAX_COORD = 100
+
+# pt1 = Point(1, 2)
+# pt2 = Point(10, 20)
+# print(pt1.MAX_COORD)
+# pt1.set_bound(-100)
+# print(pt1.__dict__)
+# print(Point.MIN_COORD)
+# a = pt1.y
+# print(a)
+# pt1.z = 5
+# print(pt1.yy)
+# del pt1.x
+# print(pt1.__dict__)
+
+# class ThreadData:
+#     __shared_attrs = {
+#         'name':'thread1',
+#         'data': {},
+#         'id':1
+#
+#     }
+#     def __init__(self):
+#         self.__dict__ = self.__shared_attrs
+# th1 = ThreadData()
+# print(id(th1.__dict__))
+# th2 = ThreadData()
+# print(id(th2.__dict__))
+# class Person:
+#     def __init__(self, name, old):
+#         self.__name = name
+#         self.__old = old
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     def get_name(self):
+#         return self.__name
+#
+#     @old.setter
+#     def old(self, old):
+#         self.__old = old
+#
+#     @old.deleter
+#     def old(self):
+#         del self.__old
+#
+#     def set_name(self, name):
+#         self.__name = name
+#     # old = property(get_old, set_old)
+#     # old = property()
+#     # old = old.setter(set_old)
+#     # old = old.getter(get_old)
+#
+#
+# p = Person('Сергей', 20)
+# del p.old
+#
+# print( p.__dict__)
+from string import ascii_letters
+
+
+class Person:
+    __S_RUS = "абвгдеёжзийклмнопрстуфхцчшщьыъэюя-"
+    __S_RUS_UPPER = __S_RUS.upper()
+
+    def __init__(self, fio, old, ps, weight):
+        self.verify_fio(fio)
+        
+
+        self.__fio = fio
+        self.old = old
+        self.ps = ps
+        self.weight = weight
 
     @classmethod
-    def validate(cls, arg):
-        return cls.MIN_COORD <= arg <= cls.MAX_COORD
+    def verify_fio(cls, fio):
+        if type(fio) != str:
+            raise TypeError("Фио должно быть строкой")
+        f = fio.split()
+        if len(f) != 3:
+            raise TypeError("Неверный формат данных")
+        letters = ascii_letters + cls.__S_RUS + cls.__S_RUS_UPPER
+        for s in f:
+            if len(s) < 1:
+                raise TypeError("В ФИО должен быть хотя бы один символ")
+            if len(s.strip(letters)) != 0:
+                raise TypeError("В ФИО можно испорльховать только буквенные символы и дефис")
 
-    def __init__(self, x, y):
-        self.x = self.y = 0
-        if self.validate(x) and self.validate(y):
-            self.x = x
-            self.y = y
+    @classmethod
+    def verify_old(cls, old):
+        if type(old) != int or old < 14 or old > 120:
+            raise TypeError("Возраст должен быть целым числом в диапозоне от 14 до 120")
 
-    def get_coord(self):
-        return self.x, self.y
-    @staticmethod
-    def norm2(x,y):
-        return x*x+y*y
+    @classmethod
+    def verify_weight(cls, weight):
+        if type(weight) != float or weight < 20:
+            raise TypeError("Вес должен быть вещественным числом от 20 и выше")
+
+    @classmethod
+    def verify_ps(cls, ps):
+        if type(ps) != str:
+            raise TypeError("Паспорт должен быть строкой")
+        s = ps.split()
+        if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+            raise TypeError("Неверный формат паспорта")
+        for p in s:
+            if not p.isdigit():
+                raise TypeError("Серия и номер паспорта должны быть числами")
+
+    @property
+    def fio(self):
+        return self.__fio
+
+    @property
+    def old(self):
+        return self.__old
+
+    @old.setter
+    def old(self, old):
+        self.verify_old(old)
+        self.__old = old
+
+    @property
+    def ps(self):
+        return self.__ps
+
+    @ps.setter
+    def ps(self, ps):
+        self.verify_ps(ps)
+        self.__ps = ps
+
+    @property
+    def weight(self):
+        return self.__weight
+
+    @weight.setter
+    def weight(self, weight):
+        self.verify_weight(weight)
+        self.__weight = weight
 
 
-v = Vector(1, 22)
-print(Vector.norm2(4,5))
-res = v.get_coord()
-print(res)
+p = Person("Макаров Андрей Вячеславович", 16, "1234 567890", 60.2)
+p.weight = 34.5
+p.old = 18
+p.ps = '2452 209123'
+print(p.weight, p.old, p.ps, p.fio)
+print(p.__dict__)
+
