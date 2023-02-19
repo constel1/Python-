@@ -113,93 +113,295 @@
 # del p.old
 #
 # print( p.__dict__)
-from string import ascii_letters
+# from string import ascii_letters
+#
+#
+# class Person:
+#     __S_RUS = "абвгдеёжзийклмнопрстуфхцчшщьыъэюя-"
+#     __S_RUS_UPPER = __S_RUS.upper()
+#
+#     def __init__(self, fio, old, ps, weight):
+#         self.verify_fio(fio)
+#
+#
+#         self.__fio = fio
+#         self.old = old
+#         self.ps = ps
+#         self.weight = weight
+#
+#     @classmethod
+#     def verify_fio(cls, fio):
+#         if type(fio) != str:
+#             raise TypeError("Фио должно быть строкой")
+#         f = fio.split()
+#         if len(f) != 3:
+#             raise TypeError("Неверный формат данных")
+#         letters = ascii_letters + cls.__S_RUS + cls.__S_RUS_UPPER
+#         for s in f:
+#             if len(s) < 1:
+#                 raise TypeError("В ФИО должен быть хотя бы один символ")
+#             if len(s.strip(letters)) != 0:
+#                 raise TypeError("В ФИО можно испорльховать только буквенные символы и дефис")
+#
+#     @classmethod
+#     def verify_old(cls, old):
+#         if type(old) != int or old < 14 or old > 120:
+#             raise TypeError("Возраст должен быть целым числом в диапозоне от 14 до 120")
+#
+#     @classmethod
+#     def verify_weight(cls, weight):
+#         if type(weight) != float or weight < 20:
+#             raise TypeError("Вес должен быть вещественным числом от 20 и выше")
+#
+#     @classmethod
+#     def verify_ps(cls, ps):
+#         if type(ps) != str:
+#             raise TypeError("Паспорт должен быть строкой")
+#         s = ps.split()
+#         if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+#             raise TypeError("Неверный формат паспорта")
+#         for p in s:
+#             if not p.isdigit():
+#                 raise TypeError("Серия и номер паспорта должны быть числами")
+#
+#     @property
+#     def fio(self):
+#         return self.__fio
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     @old.setter
+#     def old(self, old):
+#         self.verify_old(old)
+#         self.__old = old
+#
+#     @property
+#     def ps(self):
+#         return self.__ps
+#
+#     @ps.setter
+#     def ps(self, ps):
+#         self.verify_ps(ps)
+#         self.__ps = ps
+#
+#     @property
+#     def weight(self):
+#         return self.__weight
+#
+#     @weight.setter
+#     def weight(self, weight):
+#         self.verify_weight(weight)
+#         self.__weight = weight
+#
+#
+# p = Person("Макаров Андрей Вячеславович", 16, "1234 567890", 60.2)
+# p.weight = 34.5
+# p.old = 18
+# p.ps = '2452 209123'
+# print(p.weight, p.old, p.ps, p.fio)
+# print(p.__dict__)
+# class ReadIntX:
+#
+#     def __set_name__(self, owner, name):
+#         self.name = "_x"
+#
+#     def __get__(self, instance, owner):
+#         return getattr(instance, self.name)
+#
+#     def __set__(self, instance, value):
+#         setattr(instance, self.name, value)
+#
+#
+# class Integer:
+#     @classmethod
+#     def verify_coord(cls, coord):
+#         if type(coord) != int:
+#             raise TypeError("Координата должна быть целым числом")
+#
+#     def __set_name__(self, owner, name):
+#         self.name = "_" + name
+#
+#     def __get__(self, instance, owner):
+#         return getattr(instance, self.name)
+#
+#     def __set__(self, instance, value):
+#         self.verify_coord(value)
+#         setattr(instance, self.name, value)
+#
+#
+# class Point3D:
+#     x = Integer()
+#     y = Integer()
+#     z = Integer()
+#     xR = ReadIntX()
+#
+#     def __init__(self, x, y, z):
+#         """ Это функция INIT"""
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#
+#
+# p = Point3D(1, 2, 3)
+# p.__dict__['xR'] = 5
+# print(p.__dict__)
+# print(p.xR)
+
+# class Counter:
+#     __counter = 0
+#
+#     def __init__(self):
+#         self.__counter = 0
+#
+#     def __call__(self,step=1, *args, **kwargs):
+#         print("__call__")
+#         self.__counter += step
+#         return self.__counter
+#
+#
+# c = Counter()
+# c2 = Counter()
+# c()
+# c(2)
+# res = c(10)
+# res2 = c2(-5)
+# print(res, res2)
+
+# class StripChars:
+#     def __init__(self, chars):
+#         self.__counter = 0
+#         self.__chars = chars
+#     def __call__(self, *args, **kwargs):
+#         if not isinstance(args[0], str):
+#             raise TypeError("Аргумент долхен быть строкой")
+#         return args[0].strip(self.__chars)
+#
+# s1 = StripChars("?:!.; ")
+# s2 = StripChars(" ")
+# res = s1(" Hello World! ")
+# res2 = s2(" Hello World! ")
+# print(res, res2, sep="\n")
+# import math
+# class Derivate:
+#     def __init__(self, func):
+#         self.__fn = func
+#
+#     def __call__(self, x, dx=0.000001, *args, **kwargs):
+#         return (self.__fn(x + dx) - self.__fn(x)) / dx
+# # @Derivate
+# def df_sin(x):
+#     return math.sin(x)
+#
+# print(df_sin(math.pi/3))
+#
+# df_sin = Derivate(df_sin)
+# print(df_sin(math.pi/3))
+
+# class Cat:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def __repr__(self):
+#         return f"{self.__class__}: {self.name}"
+#     def __str__(self):
+#         return f"{self.name}"
+#
+#
+# cat = Cat("Васька")
+# print(cat)
+# print(str(cat))
 
 
-class Person:
-    __S_RUS = "абвгдеёжзийклмнопрстуфхцчшщьыъэюя-"
-    __S_RUS_UPPER = __S_RUS.upper()
+# class Point:
+#
+#     def __init__(self, *args):
+#         self.__coords = args
+#
+#     def __len__(self):
+#         return len(self.__coords)
+#
+#     def __abs__(self):
+#         return list(map(abs, self.__coords))
+#
+# p = Point(1, 2, -3, 4, -5)
+# print(len(p))
+# print(abs(p))
 
-    def __init__(self, fio, old, ps, weight):
-        self.verify_fio(fio)
-        
+# class Clock:
+#     __DAY = 86400
+#     def __init__(self, seconds:int):
+#         if not isinstance(seconds, int):
+#             raise TypeError("Секунды должны быть целым числом")
+#         self.seconds = seconds%self.__DAY
+#     def get_time(self):
+#         s = self.seconds%60
+#         m =(self.seconds //60)%60
+#         h = (self.seconds // 3600) % 24
+#         return f"{self.__get_formated(h)} : {self.__get_formated(m)} : {self.__get_formated(s)}"
+#     @classmethod
+#     def __get_formated(cls, x):
+#         return str(x).rjust(2, "0")
+#     def __add__(self, other):
+#         if not isinstance(other, (int, Clock)):
+#             raise TypeError("Other должн быть целым числом или Ckock")
+#         sc = other
+#         if  isinstance(other, Clock):
+#             sc = other.seconds
+#         return Clock(self.seconds + sc)
+#     def __radd__(self, other):
+#         return self + other
+#     def __iadd__(self, other):
+#         if not isinstance(other, (int, Clock)):
+#             raise ArithmeticError("Other должн быть целым числом или Ckock")
+#         sc = other
+#         if isinstance(other, Clock):
+#             sc = other.seconds
+#         self.seconds+=sc
+#         return self
+#
+#
+# c1 = Clock(1000)
+# c2 = Clock(2000)
+# c3 = 100 + c2
+# print(c2.get_time())
+# c2+=200
+# print(c2.get_time())
 
-        self.__fio = fio
-        self.old = old
-        self.ps = ps
-        self.weight = weight
+
+class Clock:
+    __DAY = 86400
 
     @classmethod
-    def verify_fio(cls, fio):
-        if type(fio) != str:
-            raise TypeError("Фио должно быть строкой")
-        f = fio.split()
-        if len(f) != 3:
-            raise TypeError("Неверный формат данных")
-        letters = ascii_letters + cls.__S_RUS + cls.__S_RUS_UPPER
-        for s in f:
-            if len(s) < 1:
-                raise TypeError("В ФИО должен быть хотя бы один символ")
-            if len(s.strip(letters)) != 0:
-                raise TypeError("В ФИО можно испорльховать только буквенные символы и дефис")
+    def __verify_data(cls, other):
+        if not isinstance(other, (int, Clock)):
+            raise ArithmeticError("Other должн быть целым числом или Ckock")
+        return other if isinstance(other, int) else other.seconds
 
-    @classmethod
-    def verify_old(cls, old):
-        if type(old) != int or old < 14 or old > 120:
-            raise TypeError("Возраст должен быть целым числом в диапозоне от 14 до 120")
+    def __init__(self, seconds: int):
+        if not isinstance(seconds, int):
+            raise TypeError("Секунды должны быть целым числом")
+        self.seconds = seconds % self.__DAY
 
-    @classmethod
-    def verify_weight(cls, weight):
-        if type(weight) != float or weight < 20:
-            raise TypeError("Вес должен быть вещественным числом от 20 и выше")
+    def __eq__(self, other):
 
-    @classmethod
-    def verify_ps(cls, ps):
-        if type(ps) != str:
-            raise TypeError("Паспорт должен быть строкой")
-        s = ps.split()
-        if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
-            raise TypeError("Неверный формат паспорта")
-        for p in s:
-            if not p.isdigit():
-                raise TypeError("Серия и номер паспорта должны быть числами")
-
-    @property
-    def fio(self):
-        return self.__fio
-
-    @property
-    def old(self):
-        return self.__old
-
-    @old.setter
-    def old(self, old):
-        self.verify_old(old)
-        self.__old = old
-
-    @property
-    def ps(self):
-        return self.__ps
-
-    @ps.setter
-    def ps(self, ps):
-        self.verify_ps(ps)
-        self.__ps = ps
-
-    @property
-    def weight(self):
-        return self.__weight
-
-    @weight.setter
-    def weight(self, weight):
-        self.verify_weight(weight)
-        self.__weight = weight
+        sc = self.__verify_data(other)
+        return self.seconds == sc
+    def __lt__(self, other):
+        sc = self.__verify_data(other)
+        return self.seconds < sc
+    def __gt__(self, other):
+        sc = self.__verify_data(other)
+        return self.seconds > sc
+    def __le__(self, other):
+        sc = self.__verify_data(other)
+        return self.seconds <= sc
+    def __ge__(self, other):
+        sc = self.__verify_data(other)
+        return self.seconds >= sc
 
 
-p = Person("Макаров Андрей Вячеславович", 16, "1234 567890", 60.2)
-p.weight = 34.5
-p.old = 18
-p.ps = '2452 209123'
-print(p.weight, p.old, p.ps, p.fio)
-print(p.__dict__)
-
+c1 = Clock(1000)
+c2 = Clock(2000)
+print(c1==c2)
